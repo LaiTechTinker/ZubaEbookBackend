@@ -1,0 +1,12 @@
+{
+  "name": "zubaback",
+  "version": "1.0.0",
+  "description": "the backend system for my zuba ai",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server.js",
+    "dev":"nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
