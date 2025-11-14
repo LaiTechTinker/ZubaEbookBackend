@@ -4,6 +4,7 @@ const dotenv=require("dotenv")
 const Cors=require("cors")
 const path=require("path")
 const DB_CONNECT=require('./db.js/connect')
+const  authRoutes=require("./Routes/authRoute")
 
 dotenv.config()
 const app=express()
@@ -12,9 +13,12 @@ app.use(Cors({
     methods:["GET","POST","DELETE","PUT"],
     allowedHeaders:["content-Type","Authorization"]
 }))
+PORT=process.env.PORT||5000
 app.use(express.json())
 app.use("/Backend/uploads",express.static(path.join(__dirname,"uploads")))
-PORT=process.env.PORT||5000
+// Routes here
+app.use("/api/auth",authRoutes)
+
 
 DB_CONNECT()
 app.listen(PORT,()=>{
