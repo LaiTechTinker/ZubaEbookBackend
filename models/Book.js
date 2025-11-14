@@ -36,7 +36,7 @@ const BookSchema=mongoose.Schema({
         type:String,
         default:""
     },
-    chapters:{ChapterSchema},
+    chapters:[ChapterSchema],
     status:{
         type:String,
         enum:["draft","published"],
