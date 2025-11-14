@@ -15,7 +15,6 @@ const Router = express.Router();
 Router.use(protect)
 Router.route("/").post(CreateBooks).get(getBooklist)
 Router.route("/:id").get(BookId).put(update_book).delete(delete_book)
-Router.route("/profile", protect,getProfile);
-Router.route("/cover/:id").put(uploads,update_bookcover)
+Router.route("/cover/:id").put(uploads.single("cover-image"),update_bookcover)
 
 module.exports = Router;
