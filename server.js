@@ -6,7 +6,7 @@ const path=require("path")
 const DB_CONNECT=require('./db.js/connect')
 const  authRoutes=require("./Routes/authRoute")
 const BookRoutes=require("./Routes/BookRoute")
-
+const AiRoutes=require("./Routes/aiRoute")
 dotenv.config()
 const app=express()
 app.use(Cors({
@@ -20,6 +20,7 @@ app.use("/Backend/uploads",express.static(path.join(__dirname,"uploads")))
 // Routes here
 app.use("/api/auth",authRoutes)
 app.use("/api/book",BookRoutes)
+app.use("/api/ai",AiRoutes)
 
 
 DB_CONNECT()

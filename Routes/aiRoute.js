@@ -4,8 +4,8 @@ const protect=require("../middleWare/authmiddleware")
 const {generateOutline,generateContent}=require("../controller/aiController")
 
 
-Router.route(protect)
+Router.use(protect)
 
-Router.post("generate_outline",generateOutline)
-Router.post("generate_chapter_content",generateContent)
+Router.post("/generate-outline",generateOutline)
+Router.post("/generate-chapter-content",generateContent)
 module.exports=Router
