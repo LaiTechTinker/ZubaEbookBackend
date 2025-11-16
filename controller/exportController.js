@@ -39,6 +39,31 @@ const DOC_STYLES={
     }
   
 }
+const processMarkdownToDocx=(markdown)=>{
+    const tokens=md.parse(markdown,{});
+    const Paragraph=[];
+    let inList=false;
+    let ListType=null
+    let orderdCounter=1
+
+    for (let i=0; i<tokens.length;i++){
+        const token=token[i]
+        try{
+            if(token.type=="heading_open"){
+                const level =parseInt(token.tag.subString(1),10)
+                const nextToken=token[i+1]
+                if(nextToken &&nextToken.type=="inline"){
+                    let headingLevel;
+                    let fontsize;
+                    switch(level){
+                        case 1:
+                        headingLevel=headingLevel.HEADING_1
+                    }
+                }
+            }
+        }
+    }
+}
 const exportAsDocument=async(req,res)=>{
 try{
 const book=await Book.findById(req.params.id)
